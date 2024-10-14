@@ -1,66 +1,36 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Lunovus Code Assessment
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Standing up a local instance
+This assumes you have local hosting in place, with a LAMP stack (or similar), as well as Composer and the latest stable Node/npm. 
 
-## About Laravel
+1. Clone the code repository from https://github.com/scheff-code/lunovus-testapp. 
+2. When the repo has been cloned, enter its root directory and run `composer install`.
+3. Create a MySQL database for the application, as well as a user for it.
+4. Add an .env file to the project root copying the .env.example file included in the repo, and then simply update the database parameters based on the database/user created in the prior step.  
+5. Run `php artisan config:clear` at the project root 
+6. Run `php artisan migrate` at the project root
+7. Run `npm install` at the project root
+8. Run `npm run build` or `npm run dev` at the project root
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+If all went well, you should be able to view the site. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+There are a variety of ways to serve the site locally. The simplest is to run `php artisan serve` which will provide a link to then view the site, or use your IDE's configuration to set up a server for the site.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Testing/Using the Application
 
-## Learning Laravel
+The home page of the application makes clear that you must first login to use the app, and offers a means to create an account using the 'Register' button.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Once you've created your account, you will be redirected to the Dashboard. Since this is simply a test application, there is little to do or see here, but you will notice a 'Tasks' link at the top of the page. Click that.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The Tasks page is a grid view, displaying all tasks that YOU have created. As requested, you cannot see other user's tasks. Since you just registered, there won't be any listed.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To create a task, click the "New Task" button at the top right. Create your task by populating all fields, and clicking 'Update Task'. 
 
-## Laravel Sponsors
+You will be redirected to the Tasks grid view, where you will see your task listed.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Notice the row just below the headers with empty text or dropdown fields. Those can be used to filter the data in the grid.
 
-### Premium Partners
+You can toggle the status of a task simply by clicking the 'switch' icon in the status column for each task. Keep in mind that, if you have filtered the status column and change the status of a given task, it will no longer appear in the list until you remove the filter, or change it to match the status to which you just changed that task.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+You can filter on multiple columns at a time. To reset the grid and remove all filtering, click the 'Clear Filters' button at the top right.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
