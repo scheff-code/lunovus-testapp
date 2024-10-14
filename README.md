@@ -18,7 +18,7 @@ There are a variety of ways to serve the site locally. The simplest is to run `p
 
 ## Testing/Using the Application
 
-The home page of the application makes clear that you must first login to use the app, and offers a means to create an account using the 'Register' button.
+The home page of the application makes clear that you must first log in to use the app, and offers a means to create an account using the 'Register' button.
 
 Once you've created your account, you will be redirected to the Dashboard. Since this is simply a test application, there is little to do or see here, but you will notice a 'Tasks' link at the top of the page. Click that.
 
@@ -33,4 +33,9 @@ Notice the row just below the headers with empty text or dropdown fields. Those 
 You can toggle the status of a task simply by clicking the 'switch' icon in the status column for each task. Keep in mind that, if you have filtered the status column and change the status of a given task, it will no longer appear in the list until you remove the filter, or change it to match the status to which you just changed that task.
 
 You can filter on multiple columns at a time. To reset the grid and remove all filtering, click the 'Clear Filters' button at the top right.
+
+The last column of the grid shows three icons:
+1. An eye: click the eye icon to view that task.
+2. A pencil: click the pencil to edit that task.
+3. A trashcan: click the trash icon to delete the task.
 
