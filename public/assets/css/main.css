@@ -1,0 +1,36 @@
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+td img {
+    width: 25px;
+}
+.nav-item form a {
+    padding-left: .25rem !important;
+}
+.note {
+    font-size: .8em;
+    font-style: italic;
+}
+
+@media (max-width: 680px) {
+    tbody td, thead th{
+        font-size: 12px !important;
+        padding: 3px !important;
+    }
+    #filters {
+        .form-control-sm, .form-select-sm {
+            padding: 0 0 0 5px;
+            font-size: 12px;
+            min-height: 25px;
+        }
+    }
+    td img {
+        width: 18px;
+    }
+}
+@media (min-width: 992px) {
+    nav {
+        padding: 1rem !important;
+    }
+}
