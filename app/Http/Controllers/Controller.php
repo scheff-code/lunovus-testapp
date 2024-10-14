@@ -15,9 +15,16 @@ class Controller extends BaseController
     protected string $sort_icon = '';
     protected static array $skip_columns = ['sort', 'sort_order', 'page'];
 
-    protected function applyFilters($model, $currentUserOnly = 1)
+    /**
+     * @param $model
+     * @param int $currentUserOnly
+     * @return mixed
+     */
+    protected function applyFilters($model, int $currentUserOnly = 1): mixed
     {
         $pairs = \request()->query();
+
+        // This ensures the query only includes the current user's tasks
         if ($currentUserOnly) {
             $pairs['user_id'] = Auth::user()->id;
         }
@@ -49,10 +56,8 @@ class Controller extends BaseController
             if ($get['sort_order'] === 'asc') {
                 return 'down';
             }
-
             return 'up';
         }
-
         return '';
     }
 

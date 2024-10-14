@@ -22,20 +22,23 @@ class TaskController extends Controller
      */
     public function index(Request $request): View
     {
+        // Check if any filters were set in the page
         $get = $request->query();
-
         if (! empty($get)) {
+            // grab the relevant database records using the applyFilters method inherited from the Controller.php class
             $models = $this->applyFilters(Task::class)->paginate();
 
+            // load the task list view, passing in the data it needs
             return view('task.index', [
                 'models' => $models,
-                'links' => $models->links(),
-                'get' => $get,
-                'sort' => isset($get['sort']) && $get['sort'] ? $get['sort'] : '',
+                'links' => $models->links(), // used for pagination if applicable
+                'get' => $get, // to prepopulate the filters
+                'sort' => isset($get['sort']) && $get['sort'] ? $get['sort'] : '', // apply sorting if applicable
                 'sort_icon' => self::sortIcon($get),
             ])->with('i', (request()->input('page', 1) - 1) * $models->perPage());
         }
 
+        // if no filters were set, grab the tasks for the current user, and pass them to the view
         $models = Task::all()->where('user_id', Auth::user()->id);
 
         return view('task.index', [
@@ -68,9 +71,12 @@ class TaskController extends Controller
         request()->validate(Task::$rules);
 
         $model = (new Task)->create($request->all());
+
+        // set the user_id to the current user's id
         $model->user_id = Auth::user()->id;
         $model->save();
 
+        // return the user to the list of tasks
         return redirect()->route('tasks')
             ->with('success', 'New task created');
     }
@@ -108,11 +114,11 @@ class TaskController extends Controller
      * @param Task $Task
      * @return RedirectResponse
      */
-    public function update(Request $request, Task $Task): RedirectResponse
+    public function update(Request $request, Task $task): RedirectResponse
     {
         request()->validate(Task::$rules);
 
-        $Task->update($request->all());
+        $task->update($request->all());
 
         return redirect()->route('tasks')
             ->with('success', 'Task updated');

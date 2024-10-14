@@ -34,6 +34,8 @@ You can toggle the status of a task simply by clicking the 'switch' icon in the 
 
 You can filter on multiple columns at a time. To reset the grid and remove all filtering, click the 'Clear Filters' button at the top right.
 
+You can also sort the grid by any of the columns by clicking the column header.
+
 The last column of the grid shows three icons:
 1. An eye: click the eye icon to view that task.
 2. A pencil: click the pencil to edit that task.

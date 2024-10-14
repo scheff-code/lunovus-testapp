@@ -29,6 +29,9 @@ class Task extends Model
         '_token',
     ];
 
+    /**
+     * returns an array with the text label of the statuses
+     */
     public static function statusText()
     {
         return [
@@ -38,6 +41,8 @@ class Task extends Model
     }
 
     /**
+     * Changes the icon shown after toggling a task's status
+     *
      * @param integer $status
      * @return string
      */
