@@ -40,6 +40,7 @@
 
             </main>
         </div>
-    @stack('scripts-body')
+    <script defer src="{{ asset('assets/js/filters.js') }}"></script>
+    <script defer src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     </body>
 </html>

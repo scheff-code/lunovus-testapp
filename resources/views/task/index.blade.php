@@ -127,7 +127,3 @@
         </div>
     </div>
 @endsection
-@push('scripts-body')
-    <script defer src="{{ asset('assets/js/filters.js') }}"></script>
-    <script defer src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-@endpush
